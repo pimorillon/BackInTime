@@ -27,7 +27,7 @@ if [ ! -d "$SRC_DIR" ]; then
 fi
 
 # Copy src content in destination
-cp -R "./src/*" $SRC_DIR
+cp -r  ./src/* $SRC_DIR
 
 # Copy settings to it's destination
 mkdir /etc/BackToTheFile/
