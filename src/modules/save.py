@@ -16,8 +16,8 @@ def excludeRoot(exclude_list):
                           '/sys/',
                           '/tmp/',
                           '/var/run/',
-                          '/var/tmp/',
-                          'lost+found']
+                          '/var/tmp/' 
+                          ]
     exclude_list.extend(excluded_root_list)
 
 def findGitDirs(start_path,excluded_list,logger):
