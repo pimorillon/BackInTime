@@ -56,7 +56,7 @@ def readConfiguration(user,source,ini_files):
     # Initialize a dictionary with default configuration for non mandatory options
     final_config = {"Source" : {"frequency" : 7, "exclude" : None},
                     "Log" : {"directory" : "/var/log/backup/", "name" : "backtothefile.log","level" :"WARNING"},
-                    "Rotation" : {"number_backups_keep" : 3, "Duration_backup_keep" : 30}
+                    "Rotation" : {"number_backups_keep" : 3, "duration_backups_keep" : 30}
                     }
 
  
@@ -161,13 +161,13 @@ def sanitize(config,ini_file,logger):
     else:
         config['Log']['level'] = 'WARNING'
 
-    if config['Rotation']['number_backups_keep'].isdigit():
+    if str(config['Rotation']['number_backups_keep']).isdigit():
         config['Rotation']['number_backups_keep'] = int(config['Rotation']['number_backups_keep'])
     else:
         logger.error('number_backups_keep configured in %s should be an integer',ini_file)
         exit(47)
 
-    if config['Rotation']['duration_backups_keep'].isdigit():
+    if str(config['Rotation']['duration_backups_keep']).isdigit():
         config['Rotation']['duration_backups_keep'] = int(config['Rotation']['duration_backups_keep'])
     else:
         logger.error('duration_backups_keep configured in %s should be an integer',ini_file)
