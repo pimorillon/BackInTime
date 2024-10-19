@@ -131,7 +131,7 @@ def sanitize(config,ini_file,logger):
             config['Destination']['name'] + '-' + date_today + '/'
     
     frequency = config['Source']['frequency']
-    if str(frequency.isdigit()):
+    if str(frequency).isdigit():
         config['Source']['frequency'] = frequency
     elif frequency.lower() == 'daily':
         config['Source']['frequency'] = 1
