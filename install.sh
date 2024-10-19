@@ -30,8 +30,8 @@ fi
 cp -r  ./src/* $SRC_DIR
 
 # Copy settings to it's destination
-mkdir /etc/BackToTheFile/
-cp files/settings.conf /etc/BackToTheFile/
+mkdir -p /etc/BackToTheFile/
+cp -n files/settings.conf /etc/BackToTheFile/
 chmod 755 /etc/BackToTheFile/
 chmod 644 /etc/BackToTheFile/settings.conf
 
