@@ -82,9 +82,6 @@ def readConfiguration(user,source,ini_files):
                 final_config[section][key] = value
         final_config["Source"]['directory'] = source 
         sanitize(final_config,ini_file,logger)
-        #Only mandatory section in the user ini file is Frequency
-        mandatory = {"Source" : ["frequency"]}
-
     return final_config
 
 def sanitize(config,ini_file,logger):

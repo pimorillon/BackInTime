@@ -25,8 +25,8 @@ def backup(user,source,config_files,root_flag=False,users=None):
         logger.removeHandler(syslog_handler)
         syslog_handler.close() 
         for user in users:
-            #users[user][1] is the path to the user's conf file
-            config["Source"]['exclude'].append(users[user][1])
+            #users[user][0] is the path to the user's home directory
+            config["Source"]['exclude'].append(users[user][0])
 
     if not root_flag:
         root_logging = save_logging_configuration()
