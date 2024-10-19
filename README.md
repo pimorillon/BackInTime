@@ -11,7 +11,7 @@ Currently, it can only save the backup on a local disk.
 
 
 
-1.	Run install.sh script as root.
+1.	Run install.sh /path/to/destination script as root.
 2.	Configure the root config file /etc/BackToTheFile/settings.conf and optionally .backtothefile.conf for each user you wish to be backup separately,
 3.	Run following command:
 
