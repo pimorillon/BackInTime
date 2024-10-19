@@ -7,9 +7,7 @@ from datetime import date
 
 from utils import addLastSlashToDir
 
-#hostname = os.uname().nodename
-hostname = 'moria'
-
+hostname = os.uname().nodename
 
 def interpretVariableInConfigFile(string):
 #Replace $USER and $HOST by actual values. Case insensitive.
