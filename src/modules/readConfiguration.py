@@ -52,7 +52,7 @@ def readConfiguration(user,source,ini_files):
     non_modifiable_keys = {"Destination" : ["directory","mountpoint","read-only",'name']}
 
     # Initialize a dictionary with default configuration for non mandatory options
-    final_config = {"Source" : {"frequency" : 7, "exclude" : None},
+    final_config = {"Source" : {"frequency" : 1, "exclude" : None},
                     "Log" : {"directory" : "/var/log/backup/", "name" : "backtothefile.log","level" :"WARNING"},
                     "Rotation" : {"number_backups_keep" : 3, "duration_backups_keep" : 30}
                     }
@@ -131,7 +131,7 @@ def sanitize(config,ini_file,logger):
             config['Destination']['name'] + '-' + date_today + '/'
     
     frequency = config['Source']['frequency']
-    if frequency.isdigit():
+    if str(frequency.isdigit()):
         config['Source']['frequency'] = frequency
     elif frequency.lower() == 'daily':
         config['Source']['frequency'] = 1
