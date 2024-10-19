@@ -1,0 +1,11 @@
+[Unit]
+Description=Run BackToTheFile as a service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/gimli/Projects/Sauvegarde/BackToTheFile.py
+
+[Install]
+WantedBy=multi-user.target
