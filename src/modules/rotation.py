@@ -34,7 +34,7 @@ def collect_files(directories,logger):
 
     return file_info
 
-def clean_old_files(file_info, keep_count=3,logger):
+def clean_old_files(file_info, logger, keep_count=3):
 #Keep only the specified number of copies
     for inode, file_versions in file_info.items():
         if len(file_versions) > keep_count:
@@ -56,5 +56,5 @@ def rotation(directory,name,keep_count,keep_duration):
 
     directories.sort(key=extract_timestamp, reverse=True)
     file_info = collect_files(directories,logger)
-    clean_old_files(file_info, keep_count,logger)
+    clean_old_files(file_info,logger, keep_count)
 
