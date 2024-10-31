@@ -7,7 +7,7 @@ from datetime import datetime
 
 from utils import extract_timestamp, is_valid_backup_directory
 
-def collect_files(directories):
+def collect_files(directories,logger):
 #Collect files in each backup directory
     file_info = defaultdict(list)
 
@@ -34,7 +34,7 @@ def collect_files(directories):
 
     return file_info
 
-def clean_old_files(file_info, keep_count=3):
+def clean_old_files(file_info, keep_count=3,logger):
 #Keep only the specified number of copies
     for inode, file_versions in file_info.items():
         if len(file_versions) > keep_count:
@@ -55,6 +55,6 @@ def rotation(directory,name,keep_count,keep_duration):
             directories.append(path)
 
     directories.sort(key=extract_timestamp, reverse=True)
-    file_info = collect_files(directories)
-    clean_old_files(file_info, keep_count)
+    file_info = collect_files(directories,logger)
+    clean_old_files(file_info, keep_count,logger)
 
